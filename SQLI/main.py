@@ -8,11 +8,38 @@ import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 
+# You will need to comment out one of the get_db(): functions before running this script
 
+# Correct/safe
 def get_db_connection():
     conn = sqlite3.connect('database.db')
     conn.row_factory = sqlite3.Row
     return conn
+
+
+# Bad: Vulnerable to SQL Injection
+def get_db_connection():
+    conn = get_db_connection()
+ """
+  problem with the regex the provided value begins and ends with only numbers as indicated by \d
+  also, re.M indicates a multi-line regex evaluation
+  so, only one line needs to match, you could make a value of 123, new line,
+  UNION SELECT Passwords from users..this leads to SQLI below in the post variable
+  the post id is catted to the remaining query
+"""
+    num_format = re.compile(r'^\d+$', re.M) # weak regex
+        if re.match(num_format,post_id):
+        # SQLI vuln, passes user input to string
+            post = conn.execute('SELECT * FROM posts WHERE id = '+post_id).fetchone()
+            conn.close()
+            if post is None:
+                abort(404)
+            return post
+        else:
+            abort(404)
+
+
+
 
 
 # Vulnerable to SQL Injection
