@@ -8,7 +8,7 @@ from Crypto.Util.Padding import pad, unpad
 
 KEY = Random.new().read(AES.block_size)
 
-# using frameworks that are secure MVC Modele View Controller .NET MVC, REST services
+# Should use frameworks that are secure MVC Modele View Controller .NET MVC, REST services
 
 class MyServer(BaseHTTPRequestHandler):
 
