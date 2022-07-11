@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 
-#!/usr/bin/env python3
-
-# https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3#step-4-setting-up-the-database
-
 # import re
 # import sqlite3
 # from flask import Flask, render_template, request, url_for, flash, redirect
