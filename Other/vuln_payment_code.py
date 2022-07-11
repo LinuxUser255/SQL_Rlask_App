@@ -18,5 +18,5 @@ def redirect_for_payment():
     tx_id = token_hex(16)
     payment_info = "transaction_id=" + tx_id + "&amount=20.00"
     params = payment_info + "&sign=" + sign_for_payment(payment_info)
-    return redirect("https://pentesterlab.com/payment?" + params,
+    return redirect("https://onlineshop/payment?" + params,
                     code=302)
