@@ -28,7 +28,7 @@ class MyServer(BaseHTTPRequestHandler):
                 self.send_response(500)
                 return
         else:
-            username = 'stranger'
+            username = 'Anonymous'
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
