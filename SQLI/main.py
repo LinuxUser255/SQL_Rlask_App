@@ -16,6 +16,7 @@ DESCRIPTION
 ===========
 
 This web app was created to be intentionally vulnerable to SQL injection and used as a Proof Of Concept
+See running_flask.txt, for instructions on running this app in your IDE.
 
 """
 
@@ -23,7 +24,6 @@ import re
 import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
-
 
 
 # Correct/safe
