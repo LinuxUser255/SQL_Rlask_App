@@ -1,5 +1,21 @@
 #!/usr/bin/env python3
 
+"""
+Extra
+
+SYNOPSIS
+========
+Scrap code snippits
+
+DESCRIPTION
+===========
+
+This is scrap code from creating the apps in this repository.
+I left here here to serve as a template and resource for quick editing of existing code, and writing other apps in the future
+
+
+"""
+
 # import re
 # import sqlite3
 # from flask import Flask, render_template, request, url_for, flash, redirect
