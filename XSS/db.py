@@ -1,3 +1,8 @@
+"""
+See app.py for a Synopsis and Description
+
+"""
+
 import sqlite3
 
 
