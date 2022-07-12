@@ -1,3 +1,7 @@
+## Found online here: https://snyk.io/blog/guide-to-python-pickle/
+
+
+
 This article will teach you how to safely use pickle in your applications. While pickle is incredibly convenient to use in a number of situations, it’s important to note that you should **only** unpickle data that you trust! Unpickling untrusted data can lead to arbitrary code execution and is a common source of critical security vulnerabilities.
 
 ## How to use Python pickle
