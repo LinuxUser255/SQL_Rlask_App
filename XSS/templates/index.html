@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--filtering vuln when setting auto escape to false -->
 {% autoescape true %}
 <html>
   <head>
@@ -30,7 +31,7 @@
     {% endif %}
 
     {% for comment in comments %}
-      <div>
+      <div> <!-- below should be: "{{ comment }}" enclose in quotes -->
         <p>{{ comment }}</p>
       </div>
     {% endfor %}
