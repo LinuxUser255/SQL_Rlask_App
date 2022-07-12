@@ -19,5 +19,5 @@
 - python -c "import flask; print(flask.__version__)"
 - export FLASK_APP=main
 - export FLASK_ENV=development
-- export FLASK_ENV=development
+
  
