@@ -12,7 +12,7 @@ SYNOPSIS
    A server will be running on localhost port 5000
    Open your browser and navigate to: http://127.0.0.1:5000
    The Web App should open and you can begin testing
-   This process is the same for running each Flasjk App in this repository.
+   This process is the same for running each Flask App in this repository.
 
 DESCRIPTION
 ===========
