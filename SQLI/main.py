@@ -8,8 +8,9 @@ SYNOPSIS
 ========
 ::
    The code in main.py is commented in such a way that this web application can be run either secured, or vulnerable.
-   There exist two versions of the function, "def get_db_connection():",  Each one is labled with a # comment above it. 
-   "# Correct/safe",  and the others labled "# Bad: Vulnerable to SQL Injection".
+   There exist two versions of the function, def get_db_connection(): 
+   Each one is labled with a # comment above it. 
+   # Correct/safe,  and the others labled # Bad: Vulnerable to SQL Injection.
    Additional commented code is left at the bottom for customization and augmenting main.py if the user desires.
 
 DESCRIPTION
