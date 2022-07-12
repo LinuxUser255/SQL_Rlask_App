@@ -1,5 +1,6 @@
 
 # Intentionaly vulnerable Python Coding: POCs
+---
 
 - SQL Injection
 - Cross Site Scripting
@@ -10,5 +11,14 @@
 - Insecure Deserialization
 
 
+## Instructions for use:
 
+> https://www.jetbrains.com/help/pycharm/creating-flask-project.html
+
+- source env/bin/activate
+- pip install flask
+- python -c "import flask; print(flask.__version__)"
+- export FLASK_APP=main
+- export FLASK_ENV=development
+- export FLASK_ENV=development
  
