@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
 
-# Building a flask SQLite database web app using Jinja template engine
-# https://www.digitalocean.com/community/tutorials/how-to-make-a-web-application-using-flask-in-python-3#step-4-setting-up-the-database
+"""
+main.py
+Building a flask SQLite database web app using Jinja template engine
+
+SYNOPSIS
+========
+::
+   The code in main.py is commented in such a way that this web application can be run either secured, or vulnerable.
+   There exist two versions of the function, "def get_db_connection():",  Each one is labled with a # comment above it. 
+   "# Correct/safe",  and the others labled "# Bad: Vulnerable to SQL Injection".
+   Additional commented code is left at the bottom for customization and augmenting main.py if the user desires.
+
+DESCRIPTION
+===========
+
+This web app was created to be intentionally vulnerable to SQL injection and used as a Proof Of Concept
+
+"""
 
 import re
 import sqlite3
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
 
-# You will need to comment out one of the get_db(): functions before running this script
+
 
 # Correct/safe
 def get_db_connection():
@@ -23,8 +39,6 @@ def get_db_connection():
  """
   problem with the regex the provided value begins and ends with only numbers as indicated by \d
   also, re.M indicates a multi-line regex evaluation
-  so, only one line needs to match, you could make a value of 123, new line,
-  UNION SELECT Passwords from users..this leads to SQLI below in the post variable
   the post id is catted to the remaining query
 """
     num_format = re.compile(r'^\d+$', re.M) # weak regex
@@ -37,24 +51,6 @@ def get_db_connection():
             return post
         else:
             abort(404)
-
-
-
-
-
-# Vulnerable to SQL Injection
-# def get_post(post_id):
-#     conn = get_db_connection()
-#     # file paths that contain numerical digits, exe: /1 throw an error, but not if prefixed with a letter /?id=1 works
-#     num_format = re.compile(r'^\d+$', re.M) # 127.0.0.1:5000/?id=1 refreshes the page only /?=1 also works
-#     if re.match(num_format, post_id):
-#         post = conn.execute('SELECT * FROM posts WHERE id = ' + post_id).fetchone()
-#         conn.close()
-#         if post is None:
-#             abort(404)
-#             return
-#         else:
-#             abort(404)
 
 
 def get_post(post_id):
@@ -135,54 +131,9 @@ def delete(id):
     flash('"{}" was successfully deleted!'.format(post['title']))
     return redirect(url_for('index'))
 
-# @app.route('/create', methods=('GET', 'POST'))
-# def create():
-#     if request.method == 'POST':
-#         title = request.form['title']
-#         content = request.form
-#
-#         if title:
-#             conn = get_db_connection()
-#             conn.execute('INSERT INTO posts (title, content) VALUES (?, ?)',
-#                          (title, content))
-#             conn.commit()
-#             conn.close()
-#             return redirect(url_for('index'))
-#         else:
-#             flash('Title is required')
-#
-#     return render_template('create.html')
 
-
-# def get_post(post_id):
-# Vulnerable to SQLi
-# def get_post(post_id):
-#     conn = get_db_connection()
-#     num_format = re.compile(r'^\d+$', re.M)  # regex begins and ends with only numbers & multiline
-#     if re.match(num_format, post_id):  # and the lack of filtering passes input to post_id
-#         post = conn.execute('SELECT * FROM posts WHERE id = ' + post_id).fetchone()
-#         conn.close()
-#         if post is None:
-#             abort(404)
-#         return post
-#     else:
-#         abort(404)
-
-# CORRECT SAFE CODE
-# conn = get_db_connection()
-# post = conn.execute('SELECT * FROM posts WHERE id = ?',
-#                     (post_id,)).fetchone()
-# conn.close()
-# if post is None:
-#     abort(404)
-# return post
-
-
-# could injecting ' comas and or <> escape the param and lead to exploit?
-
-
+# To use a diffent port, uncomment the lines below
+# Below is port 8080
 # if __name__ == "__main__":
 #     app.run(host="127.0.0.1", port=8080, debug=True)
 
-# if __name__ == '__main__':
-#     main()
