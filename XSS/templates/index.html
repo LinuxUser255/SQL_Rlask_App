@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--filtering vuln when setting auto escape to false -->
+<!-- Below is an example of a filtering vuln when setting auto escape to false -->
 {% autoescape true %}
 <html>
   <head>
@@ -31,7 +31,7 @@
     {% endif %}
 
     {% for comment in comments %}
-      <div> <!-- below should be: "{{ comment }}" enclose in quotes -->
+      <div> <!-- this is the correct way: "{{ comment }}", and on the line below is an example of vulnerable code.  -->
         <p>{{ comment }}</p>
       </div>
     {% endfor %}
@@ -46,4 +46,4 @@
   </body>
 </html>
 {% endautoescape %}
-<!--https://flask.palletsprojects.com/en/2.1.x/security/ -->
+<!-- For more information on secure coding in Python using Flask vist: https://flask.palletsprojects.com/en/2.1.x/security/ -->
