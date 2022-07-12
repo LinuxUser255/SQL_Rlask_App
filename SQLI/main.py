@@ -18,6 +18,9 @@ DESCRIPTION
 
 This web app was created to be intentionally vulnerable to SQL injection and used as a Proof Of Concept
 See running_flask.txt, for instructions on running this app in your IDE.
+The user has full use of this app as an interactive blog/message board. You can read, write, edit and delete posts. 
+Each of the HTML files in this folder: post, index, base, create, and edit, correspond to the functions below.
+
 
 """
 
@@ -38,7 +41,7 @@ def get_db_connection():
 def get_db_connection():
     conn = get_db_connection()
  """
-  problem with the regex the provided value begins and ends with only numbers as indicated by \d
+  The problem: The regex filters values that begin and end with numbers only as indicated by \d
   also, re.M indicates a multi-line regex evaluation
   the post id is catted to the remaining query
 """
