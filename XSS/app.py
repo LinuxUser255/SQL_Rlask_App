@@ -1,21 +1,19 @@
-#!/usr/bin/env python3
-
-# bad XSS
-
-from flask import Flask
+#!/usr/bin/env/python 3
+from flask import Flask, render_template, request
+import db
 
 app = Flask(__name__)
 
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        db.add_comment(request.form['comment'])
 
-@app.route('/insecure/no_template_engine_replace', methods =['GET'])
-def no_template_engine_replace():  # put application's code here
-    param = request.args.get('param', 'not set')
+    search_query = request.args.get('q')
 
-    html = open('templates/xss_shared.html').read()
-    response = make_response(html.replace('{{ name }}', param)) # Noncompliant: param is not sanitized
-    return response
+    comments = db.get_comments(search_query)
 
-
-if __name__ == '__main__':
-    app.run()
+    return render_template('index.html',
+                           comments=comments,
+                           search_query=search_query)
