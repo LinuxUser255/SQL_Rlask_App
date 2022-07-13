@@ -7,7 +7,8 @@ Building a flask SQLite database web app using Jinja template engine
 SYNOPSIS
 ========
 ::
-   The code in main.py is commented in such a way that this web application can be run either secured, or vulnerable.
+   The code in main.py serves as a POC for safe and uncoding to protect against SQL Injection attacks.
+   And, is commented in such a way that this web application can be run either secured, or vulnerable.
    There exist two versions of the function, def get_db_connection(): 
    Each one is labled with a # comment above it. 
    # Correct/safe,  and the others labled # Bad: Vulnerable to SQL Injection.
