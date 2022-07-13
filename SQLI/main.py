@@ -13,6 +13,7 @@ SYNOPSIS
    Each one is labled with a # comment above it. 
    # Correct/safe,  and the others labled # Bad: Vulnerable to SQL Injection.
    Additional commented code is left at the bottom for customization and augmenting main.py if the user desires.
+   If you want to run the correct version of main.py, then use main_safe.py in this repo
 
 DESCRIPTION
 ===========
