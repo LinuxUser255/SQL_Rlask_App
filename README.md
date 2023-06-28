@@ -1,5 +1,5 @@
 
-# Intentionaly vulnerable Python Coding: POCs
+# Intentionaly vulnerable Python Web App Code: POCs
 
 - SQL Injection
 - Cross Site Scripting
